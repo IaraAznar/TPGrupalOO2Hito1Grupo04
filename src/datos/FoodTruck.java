@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 public class FoodTruck extends UnidadVenta {
 	
@@ -7,9 +7,9 @@ public class FoodTruck extends UnidadVenta {
 	
 	//--CONSTRUCTOR--
 	
-	public FoodTruck(int id, String nombre, Empleado responsable, float superficie, long codigo, String patente,
+	public FoodTruck(long idUnidadVenta, String nombre, Empleado responsable, float superficie, long codigo, String patente,
 			boolean usaElectricidad) {
-		super(id, nombre, responsable, superficie, codigo);
+		super(idUnidadVenta, nombre, responsable, superficie, codigo);
 		this.setPatente(patente);
 		this.setUsaElectricidad(usaElectricidad);
 	}

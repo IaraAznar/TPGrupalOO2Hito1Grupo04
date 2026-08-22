@@ -1,17 +1,17 @@
-package sistema;
+package datos;
 
 public class DetallePedido {
 	
-	private int id;
+	private long idDetallePedido;
 	private Plato plato;
 	private int cantidad;
 	private float subtotal;
 	
 	//--CONSTRUCTOR--
 	
-	public DetallePedido(int id, Plato plato, int cantidad) {
+	public DetallePedido(long idDetallePedido, Plato plato, int cantidad) {
 		super();
-		this.setId(id);
+		this.setIdDetallePedido(idDetallePedido);
 		this.setPlato(plato);
 		this.setCantidad(cantidad);
 		this.subtotal = plato.getPrecioVenta() * cantidad;
@@ -19,11 +19,11 @@ public class DetallePedido {
 	
 	//--GETTERS Y SETTERS--
 	
-	public int getId() {
-		return id;
+	public long getIdDetallePedido() {
+		return idDetallePedido;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdDetallePedido (long idDetallePedido) {
+		this.idDetallePedido = idDetallePedido;
 	}
 	public Plato getPlato() {
 		return plato;

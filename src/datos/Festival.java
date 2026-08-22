@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Festival {
 		VERANO
 	}
 	
-	private int id;
+	private long idFestival;
 	private String nombre;
 	private Temporada temporada;
 	private LocalDate fechaInicio;
@@ -26,10 +26,10 @@ public class Festival {
 	
 	//--CONSTRUCTOR--
 	
-	public Festival(int id, String nombre, Temporada temporada, LocalDate fechaInicio, LocalDate fechaFin,
+	public Festival(long idFestival, String nombre, Temporada temporada, LocalDate fechaInicio, LocalDate fechaFin,
 			float costoSuperficie, float costoMontaje, float costoElectricidad, float costoBase) {
 		super();
-		this.setId(id);
+		this.setIdFestival(idFestival);
 		this.setNombre(nombre);
 		this.setTemporada(temporada);
 		this.setFechaInicio(fechaInicio);
@@ -47,11 +47,11 @@ public class Festival {
 	
 	//--GETTERS Y SETERS--
 	
-	public int getId() {
-		return id;
+	public long getIdFestival() {
+		return idFestival;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdFestival(long idFestival) {
+		this.idFestival = idFestival;
 	}
 	public String getNombre() {
 		return nombre;

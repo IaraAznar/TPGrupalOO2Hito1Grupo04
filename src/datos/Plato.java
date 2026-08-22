@@ -1,16 +1,16 @@
-package sistema;
+package datos;
 
 public class Plato {
-	private int id;
+	private long idPlato;
 	private String nombre;
 	private float precioVenta;
 	private float precioCosto;
 	
 	//--CONSTRUCTOR--
 	
-	public Plato(int id, String nombre, float precioVenta, float precioCosto) {
+	public Plato(long idPlato, String nombre, float precioVenta, float precioCosto) {
 		super();
-		this.setId(id);
+		this.setIdPlato(idPlato);
 		this.setNombre(nombre);;
 		this.setPrecioVenta(precioVenta);
 		this.setPrecioCosto(precioCosto);
@@ -18,11 +18,11 @@ public class Plato {
 	
 	//--GETTERS Y SETTERS--
 	
-	public int getId() {
-		return id;
+	public long getIdPlato() {
+		return idPlato;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdPlato(long idPlato) {
+		this.idPlato = idPlato;
 	}
 	public String getNombre() {
 		return nombre;

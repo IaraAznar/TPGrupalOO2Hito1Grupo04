@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 public class PuestoDesarmable extends UnidadVenta {
 	
@@ -7,9 +7,9 @@ public class PuestoDesarmable extends UnidadVenta {
 	
 	//--CONSTRUCTOR--
 	
-	public PuestoDesarmable(int id, String nombre, Empleado responsable, float superficie, long codigo,
+	public PuestoDesarmable(long idUnidadVenta, String nombre, Empleado responsable, float superficie, long codigo,
 			int cantidadCarpas, int minsMontaje) {
-		super(id, nombre, responsable, superficie, codigo);
+		super(idUnidadVenta, nombre, responsable, superficie, codigo);
 		this.setCantidadCarpas(cantidadCarpas);
 		this.setMinsMontaje(minsMontaje);
 	}

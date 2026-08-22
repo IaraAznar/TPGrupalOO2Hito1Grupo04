@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 import java.time.LocalDate;
 
@@ -16,9 +16,9 @@ public class Cocinero extends Empleado {
 	
 	//--CONSTRUCTOR--
 	
-	public Cocinero(int id, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
+	public Cocinero(long empleadoId, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
 			Categoria categoria, float plusCategoria) {
-		super(id, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
+		super(empleadoId, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
 		this.categoria = categoria;
 		this.plusCategoria = plusCategoria;
 	}

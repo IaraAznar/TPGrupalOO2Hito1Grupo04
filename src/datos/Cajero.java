@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 import java.time.LocalDate;
 
@@ -14,9 +14,9 @@ public class Cajero extends Empleado {
 	
 	//--CONSTRUCTOR--
 	
-	public Cajero(int id, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
+	public Cajero(long idEmpleado, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
 			Turno turno) {
-		super(id, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
+		super(idEmpleado, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
 		this.setTurno(turno);
 	}
 	

@@ -1,4 +1,4 @@
-package sistema;
+package datos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Pedido {
 	
-	private int id;
+	private long idPedido;
 	private LocalDate fecha;
 	private UnidadVenta unidadDeVenta;
 	private List<DetallePedido> detalle;
@@ -14,9 +14,9 @@ public class Pedido {
 	
 	//--CONSTRUCTOR--
 	
-	public Pedido(int id, LocalDate fecha, UnidadVenta unidadDeVenta) {
+	public Pedido(long idPedido, LocalDate fecha, UnidadVenta unidadDeVenta) {
 		super();
-		this.setId(id);
+		this.setIdPedido(idPedido);
 		this.setFecha(fecha);
 		this.setUnidadDeVenta(unidadDeVenta);
 		this.detalle = new ArrayList<DetallePedido>();
@@ -25,11 +25,11 @@ public class Pedido {
 	
 	//--GETTERS Y SETTERS--
 	
-	public int getId() {
-		return id;
+	public long getIdPedido() {
+		return idPedido;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdPedido(long idPedido) {
+		this.idPedido = idPedido;
 	}
 	public LocalDate getFecha() {
 		return fecha;

@@ -1,11 +1,11 @@
-package sistema;
+package datos;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UnidadVenta {
 
-	protected int id;
+	protected long idUnidadVenta;
 	protected String nombre;
 	protected Empleado responsable;
 	protected float superficie; //Superficie por metro cuadrado
@@ -15,9 +15,9 @@ public abstract class UnidadVenta {
 	
 	//--CONSTRUCTOR--
 	
-	public UnidadVenta(int id, String nombre, Empleado responsable, float superficie, long codigo) {
+	public UnidadVenta(long idUnidadVenta, String nombre, Empleado responsable, float superficie, long codigo) {
 		super();
-		this.setId(id);
+		this.setIdUnidadVenta(idUnidadVenta);
 		this.setNombre(nombre);
 		this.setResponsable(responsable);
 		this.setSuperficie(superficie);
@@ -36,11 +36,11 @@ public abstract class UnidadVenta {
 	
 	//--GETTERS Y SETTERS--
 	
-	public int getId() {
-		return id;
+	public long getIdUnidadVenta() {
+		return idUnidadVenta;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdUnidadVenta(long idUnidadVenta) {
+		this.idUnidadVenta = idUnidadVenta;
 	}
 	public String getNombre() {
 		return nombre;

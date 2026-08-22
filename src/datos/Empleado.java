@@ -1,9 +1,9 @@
-package sistema;
+package datos;
 
 import java.time.LocalDate;
 
 public abstract class Empleado {
-	protected int id;
+	protected long idEmpleado;
 	protected int dni;
 	protected String nombre;
 	protected String apellido;
@@ -12,10 +12,10 @@ public abstract class Empleado {
 	
 	//--CONSTRUCTOR--
 	
-	public Empleado(int id, int dni, String nombre, String apellido, LocalDate fechaIngreso,
+	public Empleado(long idEmpleado, int dni, String nombre, String apellido, LocalDate fechaIngreso,
 			LocalDate fechaNacimiento) {
 		super();
-		this.setId(id);
+		this.setIdEmpleado(idEmpleado);
 		this.setDni(dni);
 		this.setNombre(nombre);
 		this.setApellido(apellido);
@@ -25,11 +25,11 @@ public abstract class Empleado {
 	
 	//--GETTERS Y SETTERS--
 	
-	public int getId() {
-		return id;
+	public long getIdEmpleado() {
+		return idEmpleado;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEmpleado(long idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
 	public int getDni() {
 		return dni;
