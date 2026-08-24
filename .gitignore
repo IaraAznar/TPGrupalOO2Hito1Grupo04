@@ -1,1 +1,16 @@
 /bin/
+/.settings/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
