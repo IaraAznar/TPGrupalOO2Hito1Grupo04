@@ -16,9 +16,11 @@ public class Cocinero extends Empleado {
 	
 	//--CONSTRUCTOR--
 	
-	public Cocinero(long empleadoId, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
-			Categoria categoria, float plusCategoria) {
-		super(empleadoId, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
+	public Cocinero(){};
+	
+	public Cocinero( int dni, String nombre, String apellido,  LocalDate fechaNacimiento, LocalDate fechaIngreso,
+		float sueldoBase,Categoria categoria, float plusCategoria) {
+		super( dni, nombre, apellido,  fechaNacimiento, fechaIngreso, sueldoBase);
 		this.categoria = categoria;
 		this.plusCategoria = plusCategoria;
 	}
@@ -40,5 +42,12 @@ public class Cocinero extends Empleado {
 	public void setPlusCategoria(float plusCategoria) {
 		this.plusCategoria = plusCategoria;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString()+" Cocinero [categoria=" + categoria + ", plusCategoria=" + plusCategoria + "]";
+	}
+	
+	
 	
 }
