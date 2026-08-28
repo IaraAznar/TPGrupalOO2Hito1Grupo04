@@ -12,11 +12,12 @@ public class Cajero extends Empleado {
 	private Turno turno;
 	
 	//--CONSTRUCTOR--
+	public Cajero() {}
 	
-	public Cajero(long idEmpleado, int dni, String nombre, String apellido, LocalDate fechaIngreso, LocalDate fechaNacimiento,
-			Turno turno) {
-		super(idEmpleado, dni, nombre, apellido, fechaIngreso, fechaNacimiento);
-		this.setTurno(turno);
+	public Cajero( int dni, String nombre, String apellido,  LocalDate fechaNacimiento, LocalDate fechaIngreso,
+			float sueldoBase,Turno turno) {
+		super( dni, nombre, apellido, fechaNacimiento, fechaIngreso, sueldoBase);
+		this.turno=turno;
 	}
 	
 	//--GETTERS Y SETTERS--
@@ -28,5 +29,13 @@ public class Cajero extends Empleado {
 	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() +  " Cajero [turno=" + turno + "]";
+	}
+	
+	
+	
 	
 }
