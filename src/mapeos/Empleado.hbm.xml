@@ -16,6 +16,8 @@
 		<property name="fechaIngreso" column="fechaIngreso"/>
 		<property name="sueldoBase" column="sueldoBase"/>
 		
+		<!-- Relación inversa hacia su Unidad de Venta (personal) -->
+        <many-to-one name="unidadVenta" class="datos.UnidadVenta" column="idUnidadVenta" />
 		
 		<!-- Herencia -->
 		<!-- Cocinero -->

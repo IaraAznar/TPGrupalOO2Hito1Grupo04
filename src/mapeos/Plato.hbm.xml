@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate Mapping DTD 3.0//EN"
+		"https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.Plato" table="plato">
+		<!-- ID -->
+		<id name="idPlato" column="idPlato">
+			<generator class="identity"/>
+		</id>
+		
+		<!-- Atributos - Columnas -->
+		<property name="nombre" column="nombre" type="string" />
+		<property name="precioVenta" column="precioVenta" type="float"/>
+		<property name="precioCosto" column="precioCosto" type="float"/>
+		
+		<!-- Relacion con UnidadVenta -->
+		<many-to-one name="unidadVenta" class= "datos.UnidadVenta" column= "idUnidadVenta"/>
+	
+	</class>
+
+</hibernate-mapping>

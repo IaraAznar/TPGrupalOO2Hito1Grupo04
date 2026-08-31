@@ -11,6 +11,7 @@ public abstract class Empleado {
 	protected LocalDate fechaNacimiento;
 	protected LocalDate fechaIngreso;
 	protected float sueldoBase;
+	protected UnidadVenta unidadVenta; //IaraAznar: se agrega relacion con unidad de venta para relacion bidimencional
 	
 	//--CONSTRUCTOR--
 	public Empleado() {}
@@ -25,7 +26,7 @@ public abstract class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaIngreso = fechaIngreso;
 		this.sueldoBase=sueldoBase;
-		
+		this.unidadVenta = null; //IaraAznar: se setea unidad de venta como nulo para asignarlo mas tarde
 	}
 
 
@@ -85,6 +86,14 @@ public abstract class Empleado {
 	public int getAntiguedad() {
 		if(fechaIngreso == null) return 0;
 		return Period.between(fechaIngreso, LocalDate.now()).getYears();
+	}
+	
+	public UnidadVenta getUnidadVenta() {
+	    return unidadVenta;
+	}
+
+	public void setUnidadVenta(UnidadVenta unidadVenta) {
+	    this.unidadVenta = unidadVenta;
 	}
 
 
