@@ -8,7 +8,8 @@ public class Plato {
 	private UnidadVenta unidadVenta;
 	
 	//--CONSTRUCTOR--
-	
+	public Plato() {}
+
 	public Plato(String nombre, float precioVenta, float precioCosto) {
 		super();
 		this.setNombre(nombre);;

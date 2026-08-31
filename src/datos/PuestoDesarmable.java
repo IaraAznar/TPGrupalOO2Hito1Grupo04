@@ -6,7 +6,8 @@ public class PuestoDesarmable extends UnidadVenta {
 	private int minsMontaje; // cantidad de minutos para montar las carpas
 	
 	//--CONSTRUCTOR--
-	
+	public PuestoDesarmable() {}
+
 	public PuestoDesarmable(String nombre, Empleado responsable, float superficie, String codigo,
 			int cantidadCarpas, int minsMontaje) {
 		super(nombre, responsable, superficie, codigo);
@@ -28,6 +29,12 @@ public class PuestoDesarmable extends UnidadVenta {
 	public void setMinsMontaje(int minsMontaje) {
 		this.minsMontaje = minsMontaje;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "PuestoDesarmable{" + super.toString() +
+				"cantidadCarpas=" + cantidadCarpas +
+				", minsMontaje=" + minsMontaje +
+				'}';
+	}
 }

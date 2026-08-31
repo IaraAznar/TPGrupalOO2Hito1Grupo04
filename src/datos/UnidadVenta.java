@@ -10,11 +10,13 @@ public abstract class UnidadVenta {
 	protected Empleado responsable;
 	protected float superficie; //Superficie por metro cuadrado
 	protected String codigo;
+	protected Set<Festival> festivales = new HashSet<>();
 	protected Set<Plato> menu;
 	protected Set<Empleado> personal;
 	
 	//--CONSTRUCTOR--
-	
+	public UnidadVenta() {}
+
 	public UnidadVenta(String nombre, Empleado responsable, float superficie, String codigo) {
 		super();
 		this.setNombre(nombre);
@@ -31,6 +33,14 @@ public abstract class UnidadVenta {
 	
 	public boolean agregarEmpleado(Empleado empleado) {
 		return personal.add(empleado);
+	}
+
+	public boolean agregarFestival(Festival f) {
+		boolean agregar = false;
+		if( !(festivales.contains(f)) ) {
+			agregar = festivales.add(f);
+		}
+		return agregar;
 	}
 	
 	//--GETTERS Y SETTERS--
@@ -80,4 +90,21 @@ public abstract class UnidadVenta {
 	    this.personal = personal;
 	}
 
+	public Set<Festival> getFestivales() {
+		return festivales;
+	}
+
+	public void setFestivales(Set<Festival> festivales) {
+		this.festivales = festivales;
+	}
+
+	@Override
+	public String toString() {
+		return "UnidadVenta{" +
+				"idUnidadVenta=" + idUnidadVenta +
+				", nombre='" + nombre + '\'' +
+				", superficie=" + superficie +
+				", codigo='" + codigo + '\'' +
+				'}';
+	}
 }
