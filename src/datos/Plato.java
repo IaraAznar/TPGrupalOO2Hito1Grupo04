@@ -5,12 +5,12 @@ public class Plato {
 	private String nombre;
 	private float precioVenta;
 	private float precioCosto;
+	private UnidadVenta unidadVenta;
 	
 	//--CONSTRUCTOR--
 	
-	public Plato(long idPlato, String nombre, float precioVenta, float precioCosto) {
+	public Plato(String nombre, float precioVenta, float precioCosto) {
 		super();
-		this.setIdPlato(idPlato);
 		this.setNombre(nombre);;
 		this.setPrecioVenta(precioVenta);
 		this.setPrecioCosto(precioCosto);
@@ -42,4 +42,12 @@ public class Plato {
 	public void setPrecioCosto(float precioCosto) {
 		this.precioCosto = precioCosto;
 	}
+	public UnidadVenta getUnidadVenta() {
+		return unidadVenta;
+	}
+
+	public void setUnidadVenta(UnidadVenta unidadVenta) {
+		this.unidadVenta = unidadVenta;
+	}
+
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate Mapping DTD 3.0//EN"
+		"https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.UnidadVenta" table="unidadVenta">
+		<!-- ID -->
+		<id name="idUnidadVenta" column="idUnidadVenta">
+			<generator class="identity"/>
+		</id>
+		
+		<!-- Atributos - Columnas -->
+		<property name="nombre" column="nombre" type="string" />
+		<property name="superficie" column="superficie"/>
+		<property name="codigo" column="codigo"/>
+		
+		<!-- RELACIÓN 1: El menu (relación con Platos)-->
+		<set name="menu" table="plato" inverse="true" cascade="all">
+			<key column="idUnidadVenta"/>
+			<one-to-many class="datos.Plato"/>
+		</set>
+		
+		<!-- RELACIÓN 2: El Responsable (Apunta a la FK física de su propia tabla) -->
+        <many-to-one name="responsable" class="datos.Empleado" column="idResponsable" not-null="false" />
+
+        <!-- RELACIÓN 3: El Personal (El Set apunta a la FK que está en la tabla Empleado) -->
+        <set name="personal" table="empleado" inverse="true" cascade="save-update">
+            <key column="idUnidadDeVenta" /> <!-- FK en la tabla del empleado -->
+            <one-to-many class="datos.Empleado" />
+        </set>
+		
+		
+		<!-- Herencia -->
+		<!-- FoodTruck -->
+		<joined-subclass name="datos.FoodTruck" table="foodTruck">
+			<key column="idUnidadVenta"/>
+			<property column="patente" name="patente" type="string" not-null="true"/>
+			<property column="usaElectricidad" name="usaElectricidad" type="boolean" not-null="true"/>
+		</joined-subclass>
+		
+		<!-- PuestoDesarmable -->
+		<joined-subclass name="datos.PuestoDesarmable" table="puestoDesarmable">
+			<key column="idUnidadVenta"/>
+			<property column="cantidadCarpas" name="cantidadCarpas" type="int" not-null="true"/>
+			<property column="minsMontaje" name="minsMontaje" type="int" not-null="true"/>
+		</joined-subclass>
+	
+	</class>
+
+</hibernate-mapping>

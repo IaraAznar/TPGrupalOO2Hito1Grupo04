@@ -7,9 +7,9 @@ public class FoodTruck extends UnidadVenta {
 	
 	//--CONSTRUCTOR--
 	
-	public FoodTruck(long idUnidadVenta, String nombre, Empleado responsable, float superficie, long codigo, String patente,
+	public FoodTruck(String nombre, Empleado responsable, float superficie, String codigo, String patente,
 			boolean usaElectricidad) {
-		super(idUnidadVenta, nombre, responsable, superficie, codigo);
+		super(nombre, responsable, superficie, codigo);
 		this.setPatente(patente);
 		this.setUsaElectricidad(usaElectricidad);
 	}

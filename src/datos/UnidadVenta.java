@@ -1,7 +1,7 @@
 package datos;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class UnidadVenta {
 
@@ -9,21 +9,20 @@ public abstract class UnidadVenta {
 	protected String nombre;
 	protected Empleado responsable;
 	protected float superficie; //Superficie por metro cuadrado
-	protected long codigo;
-	protected List<Plato> menu;
-	protected List<Empleado> personal;
+	protected String codigo;
+	protected Set<Plato> menu;
+	protected Set<Empleado> personal;
 	
 	//--CONSTRUCTOR--
 	
-	public UnidadVenta(long idUnidadVenta, String nombre, Empleado responsable, float superficie, long codigo) {
+	public UnidadVenta(String nombre, Empleado responsable, float superficie, String codigo) {
 		super();
-		this.setIdUnidadVenta(idUnidadVenta);
 		this.setNombre(nombre);
 		this.setResponsable(responsable);
 		this.setSuperficie(superficie);
 		this.setCodigo(codigo);
-		this.menu = new ArrayList<Plato>();
-		this.personal = new ArrayList<Empleado>();
+		this.menu = new HashSet<Plato>();
+		this.personal = new HashSet<Empleado>();
 	}
 	
 	public boolean agregarPlatoAlMenu(Plato plato) {
@@ -60,11 +59,25 @@ public abstract class UnidadVenta {
 	public void setSuperficie(float superficie) {
 		this.superficie = superficie;
 	}
-	public long getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(long codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+	public Set<Plato> getMenu() {
+	    return menu;
+	}
+
+	public void setMenu(Set<Plato> menu) {
+	    this.menu = menu;
+	}
+	public Set<Empleado> getPersonal() {
+	    return personal;
+	}
+
+	public void setPersonal(Set<Empleado> personal) {
+	    this.personal = personal;
 	}
 
 }
