@@ -17,7 +17,7 @@
 ### Casos de Uso Realizados
 Angel Altieri:
 ```java
-//Trae las unidades de venta de un festival
+//Trae un festival con sus unidades de venta
 public Festival traerFestival(long idFestival)
 
 //Trae de un festival, las UV que tengan a una superficie mayor a un valor
