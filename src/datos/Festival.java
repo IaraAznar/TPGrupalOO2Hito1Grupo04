@@ -1,35 +1,35 @@
 package datos;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Festival {
 	
-	public enum Temporada{
-		INVIERNO,
-		OTONO,
-		PRIMAVERA,
-		VERANO
-	}
+//	public enum Temporada{
+//		INVIERNO,
+//		OTONO,
+//		PRIMAVERA,
+//		VERANO
+//	}
 	
 	private long idFestival;
 	private String nombre;
-	private Temporada temporada;
+	private String temporada;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	private float costoSuperficie;
 	private float costoMontaje;
 	private float costoElectricidad;
 	private float costoBase;
-	private List<UnidadVenta> unidadesDeVenta;
+	private Set<UnidadVenta> unidadesDeVenta = new HashSet<>();
 	
 	//--CONSTRUCTOR--
+	public Festival() { }
 	
-	public Festival(long idFestival, String nombre, Temporada temporada, LocalDate fechaInicio, LocalDate fechaFin,
+	public Festival(String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin,
 			float costoSuperficie, float costoMontaje, float costoElectricidad, float costoBase) {
 		super();
-		this.setIdFestival(idFestival);
 		this.setNombre(nombre);
 		this.setTemporada(temporada);
 		this.setFechaInicio(fechaInicio);
@@ -38,13 +38,31 @@ public class Festival {
 		this.setCostoMontaje(costoMontaje);
 		this.setCostoElectricidad(costoElectricidad);
 		this.setCostoBase(costoBase);
-		this.unidadesDeVenta = new ArrayList<UnidadVenta>();
 	}
 	
 	public boolean agregarUnidadDeVenta(UnidadVenta unidadDeVenta) {
-		return unidadesDeVenta.add(unidadDeVenta);
+		boolean agregar = false;
+		if( !(unidadesDeVenta.contains(unidadDeVenta)) ) {
+			agregar = unidadesDeVenta.add(unidadDeVenta);
+		}
+		return agregar;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Festival{" +
+				"idFestival=" + idFestival +
+				", nombre='" + nombre + '\'' +
+				", temporada='" + temporada + '\'' +
+				", fechaInicio=" + fechaInicio +
+				", fechaFin=" + fechaFin +
+				", costoSuperficie=" + costoSuperficie +
+				", costoMontaje=" + costoMontaje +
+				", costoElectricidad=" + costoElectricidad +
+				", costoBase=" + costoBase +
+				'}';
+	}
+
 	//--GETTERS Y SETERS--
 	
 	public long getIdFestival() {
@@ -59,10 +77,10 @@ public class Festival {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Temporada getTemporada() {
+	public String getTemporada() {
 		return temporada;
 	}
-	public void setTemporada(Temporada temporada) {
+	public void setTemporada(String temporada) {
 		this.temporada = temporada;
 	}
 	public LocalDate getFechaInicio() {
@@ -101,6 +119,13 @@ public class Festival {
 	public void setCostoBase(float costoBase) {
 		this.costoBase = costoBase;
 	}
-	
-	
+
+	public Set<UnidadVenta> getUnidadesDeVenta() {
+		return unidadesDeVenta;
+	}
+
+	public void setUnidadesDeVenta(Set<UnidadVenta> unidadesDeVenta) {
+		this.unidadesDeVenta = unidadesDeVenta;
+	}
+
 }

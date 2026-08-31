@@ -1,13 +1,10 @@
 package dao;
 
+import datos.*;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import datos.Empleado;
-import datos.FoodTruck;
-import datos.PuestoDesarmable;
-import datos.UnidadVenta;
 
 public class UnidadVentaDao {
 	
@@ -48,17 +45,33 @@ public class UnidadVentaDao {
 		}
 		return id;
 	}
-	
+
 	public UnidadVenta traer(long idUnidadVenta) {
 		UnidadVenta objeto = null;
 		try {
 			iniciaOperacion();
-			objeto = (UnidadVenta) session.createQuery("from Empleado e where e.idUnidadVenta=:idUnidadVenta")
-					.setParameter("idUnidadVenta", idUnidadVenta).uniqueResult();
-		}finally {
+			objeto = (UnidadVenta) session.get(UnidadVenta.class, idUnidadVenta);
+			Hibernate.initialize(objeto.getFestivales());
+			Hibernate.initialize(objeto.getMenu());
+			Hibernate.initialize(objeto.getPersonal());
+			Hibernate.initialize(objeto.getResponsable());
+		} finally {
 			session.close();
 		}
 		return objeto;
+	}
+
+	public void actualizar(UnidadVenta objeto) {
+		try {
+			iniciaOperacion();
+			session.update(objeto);
+			tx.commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session.close();
+		}
 	}
 
 }

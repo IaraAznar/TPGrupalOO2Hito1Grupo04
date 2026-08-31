@@ -27,8 +27,13 @@
             <key column="idUnidadDeVenta" /> <!-- FK en la tabla del empleado -->
             <one-to-many class="datos.Empleado" />
         </set>
-		
-		
+
+		<!-- Relacion n:m con festivales (Bidireccionalidad) -->
+		<set name="festivales" table="festivalxunidadVenta" outer-join="true">
+			<key column="idUnidadVenta"/>
+			<many-to-many column="idFestival" class="datos.Festival"/>
+		</set>
+
 		<!-- Herencia -->
 		<!-- FoodTruck -->
 		<joined-subclass name="datos.FoodTruck" table="foodTruck">
@@ -43,7 +48,7 @@
 			<property column="cantidadCarpas" name="cantidadCarpas" type="int" not-null="true"/>
 			<property column="minsMontaje" name="minsMontaje" type="int" not-null="true"/>
 		</joined-subclass>
-	
+
 	</class>
 
 </hibernate-mapping>
