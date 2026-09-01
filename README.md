@@ -20,13 +20,13 @@ Angel Altieri:
 //Trae un festival con sus unidades de venta
 public Festival traerFestival(long idFestival)
 
-//Trae de un festival, las UV que tengan a una superficie mayor a un valor
+//Trae de un festival, las UV que tengan  una superficie mayor a un valor
 public Set<UnidadVenta> traerUnidadesDeVentaPorSuperficieMayorA(long idFestival, float superficieMinima)
 
 //Agrega un festival
 public int agregarFestival(...)
 
-//Sirve para actualizar la BD, por ej: añado una unidad de venta a la lista de festivales en memoria y actualizo para que se impacte en la bd
+//Sirve para actualizar la BD, por ej: añado a la lista que tiene festival una unidad de venta en memoria y actualizo para que se impacte en la bd
 public void modificar(Festival festival)
 ```
 Emanuel Humberto D'Onofrio:
