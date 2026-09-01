@@ -10,7 +10,7 @@
 |--------|
 | Angel Valentín Altieri |
 | Iara Aznar |
-| Emanuel Donofrio | 
+| Emanuel Humberto D'Onofrio | 
 | Agustín | 
 
 ---
@@ -22,4 +22,31 @@ public Festival traerFestival(long idFestival)
 
 //Trae de un festival, las UV que tengan a una superficie mayor a un valor
 public Set<UnidadVenta> traerUnidadesDeVentaPorSuperficieMayorA(long idFestival, float superficieMinima)
+```
+Emanuel Humberto D'Onofrio:
+```java
+//Trae un empleado por su ID
+public Empleado traer(long idEmpleado)
+
+//Trae empleado por su DNI
+public Empleado traerEmpleadoDni(long dni)
+
+//Trae  lista  de empleados
+public List<Empleado> traer()
+
+//Agregar Cajero
+public int agregarCajero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase, Turno turno)
+
+//Agregar Cocinero
+public int agregarCocinero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase,  Categoria categoria, float plusCategoria)
+
+//Traer Lista de cocinero por categoría que sean mayor o igual a sueldo minimo
+public List<Cocinero> traerCocineroPorCategoriaYSueldo(Categoria categoria, float sueldoMinimo)
+
+//Traer una lista de cajeros por turno
+public List<Cajero> traerCajerosPorTurno(Turno turno)
+
+// traer empleados con fecha de ingreso entre fechas pasadas por parametro
+public List<Empleado> traerEmpleadosPorFechaIngreso(LocalDate desde, LocalDate hasta)
+
 ```
