@@ -32,9 +32,9 @@ public class PuestoDesarmable extends UnidadVenta {
 
 	@Override
 	public String toString() {
-		return "PuestoDesarmable{" + super.toString() +
-				"cantidadCarpas=" + cantidadCarpas +
-				", minsMontaje=" + minsMontaje +
-				'}';
+	    return String.format(
+	        "[%s] %s | Superficie: %.1f m² | Carpas: %d | Montaje: %d mins",
+	        getCodigo(), getNombre(), getSuperficie(), cantidadCarpas, minsMontaje
+	    );
 	}
 }

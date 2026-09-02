@@ -1,5 +1,8 @@
 package negocio;
 
+import java.util.List;
+import java.util.Random;
+
 import dao.EmpleadoDao;
 import dao.UnidadVentaDao;
 import datos.Empleado;
@@ -26,19 +29,19 @@ public class UnidadVentaAbm {
 	}
 	
 	//2. AGREGAR FOODTRUCK
-	public int agregarFoodTruck(String nombre, long idResponsable, float superficie, int numeroCodigo, String patente,
+	public int agregarFoodTruck(String nombre, long idResponsable, float superficie, String patente,
 			boolean usaElectricidad) throws Exception {
 		Empleado responsable = EmpleadoDao.getInstance().traer(idResponsable);
 		if(responsable == null) {
 			throw new Exception("Error: no existe empleado con id " + idResponsable);
 		}
 		//FALTA AGREGAR VALIDACION: REPONSABLE TRABAJA EN ESTE PUESTO?
-		String codigo = generarCodigo("FT", numeroCodigo);
+		String codigo = generarCodigo("FT");
 		return UnidadVentaDao.getInstance().agregar(new FoodTruck(nombre, responsable, superficie, codigo, patente, usaElectricidad));
 	}
 	
 	//3. AGREGAR PUESTO DESARMABLE
-	public int agregarPuestoDesarmable(String nombre, long idResponsable, float superficie, int numeroCodigo,
+	public int agregarPuestoDesarmable(String nombre, long idResponsable, float superficie,
 			int cantidadCarpas, int minsMontaje) throws Exception {
 		Empleado responsable = EmpleadoDao.getInstance().traer(idResponsable);
 		if(responsable == null) {
@@ -48,12 +51,14 @@ public class UnidadVentaAbm {
 			throw new Exception("Error: cantidadCarpas y minsMontaje deben ser mayores a cero");
 		}
 		//FALTA AGREGAR VALIDACION: REPONSABLE TRABAJA EN ESTE PUESTO?
-		String codigo = generarCodigo("PD", numeroCodigo);
+		String codigo = generarCodigo("PD");
 		return UnidadVentaDao.getInstance().agregar(new PuestoDesarmable(nombre, responsable, superficie, codigo, cantidadCarpas, minsMontaje));
 	}
 	
-	//GENERAR CODIGO
-	public String generarCodigo(String tipo, int numero) {
+	//4. GENERAR CODIGO
+	public String generarCodigo(String tipo) {
+		Random random = new Random();
+        int numero = 1_000_000 + random.nextInt(9_000_000);
 		String nuevoCodigo =  tipo + String.format("%07d", numero).substring(0,7);;
 		
 		int suma = 0;
@@ -64,6 +69,11 @@ public class UnidadVentaAbm {
 		
 		int digitoVerificador = suma % 10;
 		return nuevoCodigo + digitoVerificador;
+	}
+	
+	//5. TRAER UNIDADES DE VENTA POR FESTIVAL
+	public List<UnidadVenta> traerUnidadesDeVentaPorFestival(long idFestival){
+		return UnidadVentaDao.getInstance().traerPorFestival(idFestival);
 	}
 	
 }
