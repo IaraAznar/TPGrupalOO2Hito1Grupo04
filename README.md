@@ -60,12 +60,16 @@ Iara Aznar:
 ```java
 // Agregar FoodTruck
 public int agregarFoodTruck(String nombre, long idResponsable, float superficie, String patente, boolean usaElectricidad) throws Exception
+
 // Agregar Puesto Desarmable
 public int agregarPuestoDesarmable(String nombre, long idResponsable, float superficie, int cantidadCarpas, int minsMontaje) throws Exception
+
 // Generar Codigo
 public String generarCodigo(String tipo)
+
 // Traer Unidad de venta por ID
 public UnidadVenta traer(long idUnidadVenta)
+
 // Traer Unidades de venta por Festival
 public List<UnidadVenta> traerUnidadesDeVentaPorFestival(long idFestival)
 ```
