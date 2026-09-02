@@ -1,10 +1,15 @@
 package dao;
 
 import datos.*;
+
+import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import org.hibernate.query.Query;
 
 public class UnidadVentaDao {
 	
@@ -72,6 +77,22 @@ public class UnidadVentaDao {
 		} finally {
 			session.close();
 		}
+	}
+	
+	public List<UnidadVenta> traerPorFestival(long idFestival){
+		List<UnidadVenta> lista = null;
+	    try {
+	    	iniciaOperacion();
+	    	Query<UnidadVenta> query = session.createQuery(
+	    	        "SELECT u FROM UnidadVenta u JOIN u.festivales f WHERE f.id = :idFestival",
+	    	        UnidadVenta.class
+	    	    );
+	    	query.setParameter("idFestival", idFestival);
+	    	lista = query.list();
+	    } finally {
+	        session.close();
+	    }
+	    return lista;
 	}
 
 }

@@ -38,9 +38,9 @@ public class FoodTruck extends UnidadVenta {
 
 	@Override
 	public String toString() {
-		return "FoodTruck{" + super.toString() +
-				"usaElectricidad=" + usaElectricidad +
-				", patente='" + patente + '\'' +
-				'}';
+	    return String.format(
+	        "[%s] %s | Superficie: %.1f m² | Patente: %s | Electricidad: %s",
+	        getCodigo(), getNombre(), getSuperficie(), patente, usaElectricidad ? "Sí" : "No"
+	    );
 	}
 }
