@@ -51,8 +51,7 @@ public class PlatoDao {
 		Plato objeto = null;
 		try {
 			iniciaOperacion();
-			objeto = (Plato) session.createQuery("from Plato where Plato.idPlato=:idPlato")
-					.setParameter("idEmpleado", idPlato).uniqueResult();
+			objeto = session.get(Plato.class, idPlato);
 		}finally {
 			session.close();
 		}
