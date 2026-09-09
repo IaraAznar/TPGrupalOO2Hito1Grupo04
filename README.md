@@ -11,7 +11,7 @@
 | Angel Valentín Altieri |
 | Iara Aznar |
 | Emanuel Humberto D'Onofrio | 
-| Agustín | 
+| Agustín Luengo | 
 
 ---
 ### Casos de Uso Realizados
@@ -73,3 +73,18 @@ public UnidadVenta traer(long idUnidadVenta)
 // Traer Unidades de venta por Festival
 public List<UnidadVenta> traerUnidadesDeVentaPorFestival(long idFestival)
 ```
+Agustín Luengo:
+```java
+// Agregar Pedido
+public int agregarPedido(LocalDate fecha, long idUnidadVenta) throws Exception
+
+// Traer Pedido por id 
+public Pedido traer(long idPedido)
+
+// Traer Pedidos entre fechas
+public List<Pedido> traerPedidosEntreFechas(LocalDate desde, LocalDate hasta) throws Exception
+
+// Agregar Detalle a Pedido
+public void agregarDetallePedido(long idPedido, long idPlato, int cantidad)	throws Exception
+```
+
