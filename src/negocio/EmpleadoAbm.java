@@ -9,6 +9,7 @@ import datos.Cajero.Turno;
 import datos.Cocinero;
 import datos.Cocinero.Categoria;
 import datos.Empleado;
+import datos.UnidadVenta;
 
 public class EmpleadoAbm {
 	
@@ -40,7 +41,7 @@ public class EmpleadoAbm {
 	}
 		
 	//4. AGREGAR CAJERO
-	public int agregarCajero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase, Turno turno) throws Exception{
+	public int agregarCajero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase, Turno turno, long idUnidadVenta) throws Exception{
 		
 		if (traer(dni) != null) {
             throw new Exception("Error: Ya existe un empleado con el DNI " + dni);
@@ -51,12 +52,17 @@ public class EmpleadoAbm {
         if (sueldoBase <= 0) {
             throw new Exception("Error: El sueldo base debe ser mayor a 0.");
         }
+        
+        UnidadVenta unidadVenta = UnidadVentaAbm.getInstance().traer(idUnidadVenta);
+        if (unidadVenta == null) {
+        	throw new Exception("Error: no existe unidad de venta con id " + idUnidadVenta);
+        }
 		
-		return EmpleadoDao.getInstance().agregar(new Cajero(dni,nombre,apellido,fechaNacimiento,fechaIngreso,sueldoBase, turno));
+		return EmpleadoDao.getInstance().agregar(new Cajero(dni,nombre,apellido,fechaNacimiento,fechaIngreso,sueldoBase, turno, unidadVenta));
 	}
 	
 	//5. AGREGAR COCINERO
-	public int agregarCocinero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase,  Categoria categoria, float plusCategoria)throws Exception {
+	public int agregarCocinero(int dni, String nombre, String apellido, LocalDate fechaNacimiento, LocalDate fechaIngreso, float sueldoBase,  Categoria categoria, float plusCategoria, long idUnidadVenta)throws Exception {
 		
 		if (traer(dni) != null) {
             throw new Exception("Error: Ya existe un empleado con el DNI " + dni);
@@ -67,8 +73,13 @@ public class EmpleadoAbm {
         if (sueldoBase <= 0) {
             throw new Exception("Error: El sueldo base debe ser mayor a 0.");
         }
+        
+        UnidadVenta unidadVenta = UnidadVentaAbm.getInstance().traer(idUnidadVenta);
+        if (unidadVenta == null) {
+        	throw new Exception("Error: no existe unidad de venta con id " + idUnidadVenta);
+        }
 		
-		return EmpleadoDao.getInstance().agregar(new Cocinero(dni,nombre,apellido,fechaNacimiento,fechaIngreso,sueldoBase,categoria,plusCategoria));
+		return EmpleadoDao.getInstance().agregar(new Cocinero(dni,nombre,apellido,fechaNacimiento,fechaIngreso,sueldoBase,categoria,plusCategoria, unidadVenta));
 	}
 	
 	//6. TRAER LISTA DE COCINEROS POR CATEGORIA Y MAYOR O IGUAL A SUELDO MINIMO

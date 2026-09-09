@@ -18,7 +18,7 @@ public abstract class Empleado {
 	
 
 	public Empleado( int dni, String nombre, String apellido, LocalDate fechaNacimiento,
-			LocalDate fechaIngreso, float sueldoBase) {
+			LocalDate fechaIngreso, float sueldoBase, UnidadVenta unidadVenta) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -26,7 +26,7 @@ public abstract class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaIngreso = fechaIngreso;
 		this.sueldoBase=sueldoBase;
-		this.unidadVenta = null; //IaraAznar: se setea unidad de venta como nulo para asignarlo mas tarde
+		this.unidadVenta = unidadVenta; 
 	}
 
 

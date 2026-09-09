@@ -15,8 +15,8 @@ public class Cajero extends Empleado {
 	public Cajero() {}
 	
 	public Cajero( int dni, String nombre, String apellido,  LocalDate fechaNacimiento, LocalDate fechaIngreso,
-			float sueldoBase,Turno turno) {
-		super( dni, nombre, apellido, fechaNacimiento, fechaIngreso, sueldoBase);
+			float sueldoBase,Turno turno, UnidadVenta unidadVenta) {
+		super( dni, nombre, apellido, fechaNacimiento, fechaIngreso, sueldoBase, unidadVenta);
 		this.turno=turno;
 	}
 	
